@@ -1,0 +1,3 @@
+import test from "node:test"; import assert from "node:assert/strict"; import { checkEndpoint, runChecks, MonitorHistory } from "../src/index.js";
+test("checks endpoint and summarizes history",async()=>{const fetchImpl=async()=>({status:200});const result=await checkEndpoint("https://example.test",{fetchImpl});assert.equal(result.ok,true);const history=new MonitorHistory();history.add(result);assert.equal(history.summary().uptimePercent,100);});
+test("runs multiple targets",async()=>{const r=await runChecks([{url:"https://a.test"},{url:"https://b.test"}],{fetchImpl:async()=>({status:200})});assert.equal(r.healthy,2);});
