@@ -1,0 +1,13 @@
+{
+  "name": "d04-api-monitor",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Concurrent endpoint health checks with latency and uptime summaries.",
+  "exports": "./src/index.js",
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
